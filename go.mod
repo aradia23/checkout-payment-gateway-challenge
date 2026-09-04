@@ -1,4 +1,4 @@
-module github.com/cko-recruitment/payment-gateway-challenge-go
+module github.com/aradia23/checkout-payment-gateway-challengeo
 
 go 1.21
 

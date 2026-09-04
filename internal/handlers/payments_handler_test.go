@@ -5,8 +5,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/cko-recruitment/payment-gateway-challenge-go/internal/models"
-	"github.com/cko-recruitment/payment-gateway-challenge-go/internal/repository"
+	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/models"
+	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/repository"
 	"github.com/go-chi/chi/v5"
 	"github.com/stretchr/testify/assert"
 )

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/cko-recruitment/payment-gateway-challenge-go/docs"
-	"github.com/cko-recruitment/payment-gateway-challenge-go/internal/handlers"
+	"github.com/aradia23/checkout-payment-gateway-challengeo/docs"
+	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/handlers"
 	httpSwagger "github.com/swaggo/http-swagger"
 )
 
@@ -37,4 +37,11 @@ func (a *Api) GetPaymentHandler() http.HandlerFunc {
 	h := handlers.NewPaymentsHandler(a.paymentsRepo)
 
 	return h.GetHandler()
+}
+
+// GetPaymentHandler returns an http.HandlerFunc that handles Payments GET requests.
+func (a *Api) PostPaymentHandler() http.HandlerFunc {
+	h := handlers.NewPaymentsHandler(a.paymentsRepo)
+
+	return h.PostHandler()
 }

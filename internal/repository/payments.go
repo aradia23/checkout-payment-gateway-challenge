@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/cko-recruitment/payment-gateway-challenge-go/internal/models"
+	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/models"
 )
 
 type PaymentsRepository struct {

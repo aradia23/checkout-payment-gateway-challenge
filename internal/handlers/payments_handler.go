@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/cko-recruitment/payment-gateway-challenge-go/internal/repository"
+	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/repository"
+
 	"github.com/go-chi/chi/v5"
 )
 
@@ -39,6 +40,9 @@ func (h *PaymentsHandler) GetHandler() http.HandlerFunc {
 }
 
 func (ph *PaymentsHandler) PostHandler() http.HandlerFunc {
-	//TODO
-	return nil
+	return func(w http.ResponseWriter, r *http.Request) {
+		type response struct {
+			message string
+		}
+	}
 }

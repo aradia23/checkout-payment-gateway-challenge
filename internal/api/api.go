@@ -6,7 +6,7 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/cko-recruitment/payment-gateway-challenge-go/internal/repository"
+	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/repository"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"golang.org/x/sync/errgroup"
@@ -61,4 +61,6 @@ func (a *Api) setupRouter() {
 	a.router.Get("/swagger/*", a.SwaggerHandler())
 
 	a.router.Get("/api/payments/{id}", a.GetPaymentHandler())
+
+	a.router.Post("/api/payments/", a.PostPaymentHandler())
 }
