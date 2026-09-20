@@ -6,6 +6,7 @@ import (
 	"net"
 	"net/http"
 
+	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/client"
 	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/repository"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -15,11 +16,13 @@ import (
 type Api struct {
 	router       *chi.Mux
 	paymentsRepo *repository.PaymentsRepository
+	bankClient   *client.Client
 }
 
 func New() *Api {
 	a := &Api{}
 	a.paymentsRepo = repository.NewPaymentsRepository()
+	a.bankClient = client.NewClient("http://localhost:8080")
 	a.setupRouter()
 
 	return a
