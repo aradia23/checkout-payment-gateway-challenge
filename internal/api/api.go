@@ -66,7 +66,7 @@ func (a *Api) setupRouter() {
 
 	a.router.Get("/api/payments/{id}", a.GetPaymentHandler())
 
-	a.router.Post("/api/payments/", a.PostPaymentHandler())
+	a.router.Post("/api/payments", a.PostPaymentHandler())
 }
 
 func bankBaseUrl() string {
@@ -74,4 +74,9 @@ func bankBaseUrl() string {
 		return env
 	}
 	return "http://localhost:8080"
+}
+
+// Used for testing
+func (a *Api) Handler() http.Handler {
+	return a.router
 }
