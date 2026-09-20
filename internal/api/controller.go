@@ -39,7 +39,7 @@ func (a *Api) GetPaymentHandler() http.HandlerFunc {
 	return h.GetHandler()
 }
 
-// GetPaymentHandler returns an http.HandlerFunc that handles Payments GET requests.
+// PostPaymentHandler returns an http.HandlerFunc that handles Payments POST requests.
 func (a *Api) PostPaymentHandler() http.HandlerFunc {
 	h := handlers.NewPaymentsHandler(a.paymentsRepo, a.bankClient)
 

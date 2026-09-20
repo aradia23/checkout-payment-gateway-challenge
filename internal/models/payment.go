@@ -23,7 +23,7 @@ type PostPaymentRequest struct {
 type PostPaymentResponse struct {
 	Id                 string `json:"id"`
 	PaymentStatus      string `json:"payment_status"`
-	CardNumberLastFour int    `json:"card_number_last_four"`
+	CardNumberLastFour string `json:"card_number_last_four"`
 	ExpiryMonth        int    `json:"expiry_month"`
 	ExpiryYear         int    `json:"expiry_year"`
 	Currency           string `json:"currency"`
@@ -33,7 +33,7 @@ type PostPaymentResponse struct {
 type GetPaymentResponse struct {
 	Id                 string `json:"id"`
 	PaymentStatus      string `json:"payment_status"`
-	CardNumberLastFour int    `json:"card_number_last_four"`
+	CardNumberLastFour string `json:"card_number_last_four"`
 	ExpiryMonth        int    `json:"expiry_month"`
 	ExpiryYear         int    `json:"expiry_year"`
 	Currency           string `json:"currency"`

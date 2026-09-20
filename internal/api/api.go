@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"os"
 
 	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/client"
 	"github.com/aradia23/checkout-payment-gateway-challengeo/internal/repository"
@@ -22,7 +23,7 @@ type Api struct {
 func New() *Api {
 	a := &Api{}
 	a.paymentsRepo = repository.NewPaymentsRepository()
-	a.bankClient = client.NewClient("http://localhost:8080")
+	a.bankClient = client.NewClient(bankBaseUrl())
 	a.setupRouter()
 
 	return a
@@ -66,4 +67,11 @@ func (a *Api) setupRouter() {
 	a.router.Get("/api/payments/{id}", a.GetPaymentHandler())
 
 	a.router.Post("/api/payments/", a.PostPaymentHandler())
+}
+
+func bankBaseUrl() string {
+	if env := os.Getenv("BANK_BASE_URL"); env != "" {
+		return env
+	}
+	return "http://localhost:8080"
 }

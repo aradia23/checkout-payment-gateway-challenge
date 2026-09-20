@@ -7,6 +7,11 @@ import (
 	"net/http"
 )
 
+const (
+	PaymentStatusAuthorized = "authorized"
+	PaymentStatusDeclined   = "declined"
+)
+
 type Client struct {
 	baseURL string
 	client  *http.Client
@@ -21,7 +26,7 @@ type AutherizaionRequest struct {
 }
 
 type AutherizaionResponse struct {
-	Authorizationed   string `json:"authorizationed"`
+	Authorized        bool   `json:"authorized"`
 	AuthorizationCode string `json:"authorization_code"`
 }
 
