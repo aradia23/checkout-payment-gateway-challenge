@@ -25,12 +25,8 @@ func TestValidateCardNumber(t *testing.T) {
 }
 
 func TestValidExpiryDate(t *testing.T) {
-	if err := validExpiryDate(1, 2000); err != nil {
-		t.Fatalf("validExpiryDate() error for an expired date = %v", err)
-	}
-
-	if err := validExpiryDate(12, 9999); err == nil {
-		t.Error("validExpiryDate() expected an error for a future date")
+	if err := validExpiryDate(1, 2000); err == nil {
+		t.Errorf("validExpiryDate() expected an error for an expired date = %v", err)
 	}
 
 	if err := validExpiryDate(13, 2030); err == nil {
@@ -39,6 +35,14 @@ func TestValidExpiryDate(t *testing.T) {
 
 	if err := validExpiryDate(1, 999); err == nil {
 		t.Error("validExpiryDate() expected an error for an invalid year")
+	}
+
+	if err := validExpiryDate(1, 2030); err != nil {
+		t.Fatalf("validExpiryDate() error for a valid date = %v", err)
+	}
+
+	if err := validExpiryDate(10, 2026); err != nil {
+		t.Fatalf("validExpiryDate() error for a valid date = %v", err)
 	}
 }
 

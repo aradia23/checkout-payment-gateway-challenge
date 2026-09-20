@@ -13,10 +13,6 @@ const (
 
 	minMonth = 1
 	maxMonth = 12
-
-	usd currencyCode = "USD"
-	eur currencyCode = "EUR"
-	gbp currencyCode = "GBP"
 )
 
 var supportedCurrencies = map[string]bool{
@@ -99,7 +95,7 @@ func validExpiryDate(month int, year int) error {
 		time.Local,
 	)
 
-	if now.Before(expiry) {
+	if expiry.Before(now) {
 		return fmt.Errorf("expiry date must not be before current date")
 	}
 
